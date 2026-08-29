@@ -1,0 +1,658 @@
+/* ============================================================
+   STEPZONE — резервна база товарів.
+   Основне джерело даних — data/products.json (завантажується через fetch).
+   Цей файл використовується як fallback, якщо сайт відкрито
+   напряму з файлу (file://), де fetch до локального JSON заборонений.
+   ============================================================ */
+
+window.STEPZONE_PRODUCTS = [
+  {
+    id: "nike-air-max-97",
+    name: "Nike Air Max 97 Silver Bullet",
+    brand: "Nike",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 7490, oldPrice: 8990,
+    rating: 4.8, reviews: 214,
+    badge: "sale",
+    colors: ["Срібний", "Чорний"],
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_6310bed3-40b3-4fea-b1ed-184668727557_3840x.jpg?v=1735879315",
+      "assets/img/nike-air-max-97-1.svg",
+      "assets/img/nike-air-max-97-2.svg"
+    ],
+    description: "Легендарний силует 1997 року з наскрізною повітряною подушкою Max Air по всій довжині підошви. Хвилястий дизайн верху натхненний японськими швидкісними потягами.",
+    specs: { "Верх": "Синтетика + сітка", "Підошва": "Гума / Max Air", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 12, createdAt: "2026-05-14", popular: true
+  },
+  {
+    id: "nike-dunk-low-panda",
+    name: "Nike Dunk Low Retro Panda",
+    brand: "Nike",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 6290, oldPrice: null,
+    rating: 4.9, reviews: 512,
+    badge: "hit",
+    colors: ["Чорно-білий"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    images: [
+      "https://www.dtlr.com/cdn/shop/files/HF5441-100_1200x1200.jpg?v=1735768724",
+      "assets/img/nike-dunk-low-panda-1.svg",
+      "assets/img/nike-dunk-low-panda-2.svg"
+    ],
+    description: "Найпопулярніша розцвітка Dunk за останні роки. Класична баскетбольна форма 1985 року, шкіряний верх і чіткий чорно-білий блок — працює під будь-який образ.",
+    specs: { "Верх": "Натуральна шкіра", "Підошва": "Гума", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "В'єтнам" },
+    stock: 8, createdAt: "2026-06-02", popular: true
+  },
+  {
+    id: "nike-air-force-1",
+    name: "Nike Air Force 1 '07 Triple White",
+    brand: "Nike",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 5490, oldPrice: null,
+    rating: 4.9, reviews: 903,
+    badge: "hit",
+    colors: ["Білий"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png",
+      "assets/img/nike-air-force-1-1.svg",
+      "assets/img/nike-air-force-1-2.svg"
+    ],
+    description: "Кросівки, які не виходять з моди з 1982 року. Повнозерниста шкіра, подушка Nike Air у п'яті та впізнаваний контур — базова пара в будь-якому гардеробі.",
+    specs: { "Верх": "Натуральна шкіра", "Підошва": "Гума / Nike Air", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "Індонезія" },
+    stock: 25, createdAt: "2026-03-11", popular: true
+  },
+  {
+    id: "nike-pegasus-41",
+    name: "Nike Air Zoom Pegasus 41",
+    brand: "Nike",
+    category: "running",
+    gender: "men",
+    price: 6890, oldPrice: 7790,
+    rating: 4.7, reviews: 168,
+    badge: "sale",
+    colors: ["Білий", "Чорний"],
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_10d73d48-0aa5-4d2e-b930-de7cfe1bf4d6_3840x.jpg",
+      "assets/img/nike-pegasus-41-1.svg",
+      "assets/img/nike-pegasus-41-2.svg"
+    ],
+    description: "Робочий кінь щоденних пробіжок. Піна ReactX повертає більше енергії й нагрівається менше, а дві вставки Zoom Air додають відповіді на кожному кроці.",
+    specs: { "Верх": "Інженерна сітка", "Підошва": "ReactX + Zoom Air", "Дроп": "10 мм", "Вага": "281 г", "Сезон": "Всесезон" },
+    stock: 15, createdAt: "2026-04-20", popular: true
+  },
+  {
+    id: "nike-vaporfly-3",
+    name: "Nike ZoomX Vaporfly Next% 3",
+    brand: "Nike",
+    category: "running",
+    gender: "unisex",
+    price: 12990, oldPrice: null,
+    rating: 4.9, reviews: 87,
+    badge: "new",
+    colors: ["Молочний", "Помаранчевий"],
+    sizes: [40, 41, 42, 43, 44, 45],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_fe76d246-ca0c-42ef-b012-0e105c0ef0ca_3840x.jpg?v=1739576822",
+      "assets/img/nike-vaporfly-3-1.svg",
+      "assets/img/nike-vaporfly-3-2.svg"
+    ],
+    description: "Змагальні марафонки з карбоновою пластиною Flyplate і піною ZoomX. Верх Flyknit майже нічого не важить і швидко відводить вологу.",
+    specs: { "Верх": "Flyknit", "Підошва": "ZoomX + карбон", "Дроп": "8 мм", "Вага": "196 г", "Призначення": "Змагання" },
+    stock: 5, createdAt: "2026-07-30", popular: false
+  },
+  {
+    id: "jordan-1-retro-high",
+    name: "Air Jordan 1 Retro High OG Chicago",
+    brand: "Jordan",
+    category: "basketball",
+    gender: "unisex",
+    price: 9990, oldPrice: null,
+    rating: 5.0, reviews: 431,
+    badge: "hit",
+    colors: ["Червоно-білий"],
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_20547cf0-313d-492e-841b-19bc12ed1281_3840x.jpg?v=1717156718",
+      "assets/img/jordan-1-retro-high-1.svg",
+      "assets/img/jordan-1-retro-high-2.svg"
+    ],
+    description: "Та сама пара, з якої почалася історія Jordan Brand у 1985-му. Преміальна шкіра, високий силует і найвпізнаваніша розцвітка в історії кросівок.",
+    specs: { "Верх": "Натуральна шкіра", "Підошва": "Гума / Air-Sole", "Висота": "High", "Сезон": "Демісезон", "Країна": "Китай" },
+    stock: 4, createdAt: "2026-05-28", popular: true
+  },
+  {
+    id: "jordan-4-retro",
+    name: "Air Jordan 4 Retro Military Black",
+    brand: "Jordan",
+    category: "basketball",
+    gender: "men",
+    price: 11490, oldPrice: 12900,
+    rating: 4.8, reviews: 156,
+    badge: "sale",
+    colors: ["Білий", "Чорний"],
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_ac22706b-f97a-4f10-8fe4-2b6da5ac172e_3840x.jpg?v=1708349155",
+      "assets/img/jordan-4-retro-1.svg",
+      "assets/img/jordan-4-retro-2.svg"
+    ],
+    description: "Четверта модель Jordan з фірмовими сітчастими вставками і пластиковими «крилами». Один із найзбалансованіших силуетів лінійки.",
+    specs: { "Верх": "Шкіра + сітка", "Підошва": "Гума / Air-Sole", "Висота": "Mid", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 6, createdAt: "2026-06-18", popular: true
+  },
+  {
+    id: "adidas-samba-og",
+    name: "adidas Samba OG",
+    brand: "Adidas",
+    category: "retro",
+    gender: "unisex",
+    price: 5290, oldPrice: null,
+    rating: 4.8, reviews: 640,
+    badge: "hit",
+    colors: ["Білий", "Чорний"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_50399fd1-c666-476e-89f8-3b6ddf86663f_1920x.jpg?v=1705302514",
+      "assets/img/adidas-samba-og-1.svg",
+      "assets/img/adidas-samba-og-2.svg"
+    ],
+    description: "Футбольна класика 1950-х, що стала головним лайфстайл-силуетом останніх сезонів. Низький профіль, замшевий носок і гумова підошва «gum».",
+    specs: { "Верх": "Шкіра + замша", "Підошва": "Гума gum", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "Індонезія" },
+    stock: 20, createdAt: "2026-04-02", popular: true
+  },
+  {
+    id: "adidas-gazelle",
+    name: "adidas Gazelle Indoor",
+    brand: "Adidas",
+    category: "retro",
+    gender: "women",
+    price: 4990, oldPrice: 5690,
+    rating: 4.7, reviews: 289,
+    badge: "sale",
+    colors: ["Бордовий", "Синій"],
+    sizes: [36, 37, 38, 39, 40, 41, 42],
+    images: [
+      "https://assets.adidas.com/images/w_840,f_auto,q_auto/d4c22fed85b3401ab8392eca269c9575_9366/Gazelle_Indoor_Shoes_Burgundy_JH5403_01_standard.jpg",
+      "assets/img/adidas-gazelle-1.svg",
+      "assets/img/adidas-gazelle-2.svg"
+    ],
+    description: "Замшевий верх, контрастні смуги й вузький силует. Модель, яку носили всі — від спортсменів 70-х до сучасних it-girls.",
+    specs: { "Верх": "Замша", "Підошва": "Гума", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 14, createdAt: "2026-05-05", popular: true
+  },
+  {
+    id: "adidas-ultraboost-5",
+    name: "adidas Ultraboost 5",
+    brand: "Adidas",
+    category: "running",
+    gender: "unisex",
+    price: 8490, oldPrice: null,
+    rating: 4.6, reviews: 197,
+    badge: "new",
+    colors: ["Чорний", "Сірий"],
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://assets.adidas.com/images/w_840,f_auto,q_auto/daf00970826441cc887c069e9b65bb4b_9366/Ultraboost_5_Shoes_Black_ID8847_HM1.jpg",
+      "assets/img/adidas-ultraboost-5-1.svg",
+      "assets/img/adidas-ultraboost-5-2.svg"
+    ],
+    description: "Найм'якіша піна BOOST і адаптивний верх Primeknit. Однаково добре працює і на пробіжці, і на 15 тисячах кроків по місту.",
+    specs: { "Верх": "Primeknit", "Підошва": "BOOST + Continental", "Дроп": "10 мм", "Вага": "310 г", "Сезон": "Всесезон" },
+    stock: 11, createdAt: "2026-07-12", popular: true
+  },
+  {
+    id: "adidas-campus-00s",
+    name: "adidas Campus 00s",
+    brand: "Adidas",
+    category: "retro",
+    gender: "unisex",
+    price: 5590, oldPrice: null,
+    rating: 4.7, reviews: 312,
+    badge: null,
+    colors: ["Сірий", "Зелений"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    images: [
+      "https://assets.adidas.com/images/w_840,f_auto,q_auto/ce738cbe5342421996feaf5001044964_9366/Campus_00s_Shoes_Grey_HQ8707_01_standard.jpg",
+      "assets/img/adidas-campus-00s-1.svg",
+      "assets/img/adidas-campus-00s-2.svg"
+    ],
+    description: "Масивна замшева версія баскетбольного Campus у стилі нульових. Товста підошва, широкий носок, максимально впізнаваний вайб.",
+    specs: { "Верх": "Замша", "Підошва": "Гума", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "Індонезія" },
+    stock: 17, createdAt: "2026-06-25", popular: false
+  },
+  {
+    id: "nb-530",
+    name: "New Balance 530 White Silver",
+    brand: "New Balance",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 5190, oldPrice: null,
+    rating: 4.7, reviews: 388,
+    badge: "hit",
+    colors: ["Білий", "Срібний", "Синій"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    images: [
+      "https://www.mjfootwear.com/cdn/shop/files/new-balance-530-mens-sneakers-white-navy-silver-mr530sg-1_5000x.jpg?v=1716309428",
+      "assets/img/nb-530-1.svg",
+      "assets/img/nb-530-2.svg"
+    ],
+    description: "Ретро-ранери 90-х з амортизацією ABZORB. Легкі, з великим логотипом N і сріблястими вставками — найпопулярніша модель NB в Україні.",
+    specs: { "Верх": "Сітка + синтетика", "Підошва": "ABZORB", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "В'єтнам" },
+    stock: 22, createdAt: "2026-03-29", popular: true
+  },
+  {
+    id: "nb-9060",
+    name: "New Balance 9060 Sea Salt",
+    brand: "New Balance",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 8290, oldPrice: 9290,
+    rating: 4.8, reviews: 176,
+    badge: "sale",
+    colors: ["Бежевий", "Сірий"],
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://nb.scene7.com/is/image/NB/u9060eca_nb_02_i?$pdpflexf2$&wid=1000&hei=1000",
+      "assets/img/nb-9060-1.svg",
+      "assets/img/nb-9060-2.svg"
+    ],
+    description: "Футуристичне переосмислення лінійки 99X. Хвилясті панелі, масивна підошва ABZORB SBS і нейтральна палітра, яка пасує до всього.",
+    specs: { "Верх": "Сітка + замша", "Підошва": "ABZORB SBS", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 9, createdAt: "2026-06-08", popular: true
+  },
+  {
+    id: "nb-1906r",
+    name: "New Balance 1906R Protection Pack",
+    brand: "New Balance",
+    category: "lifestyle",
+    gender: "men",
+    price: 8990, oldPrice: null,
+    rating: 4.8, reviews: 121,
+    badge: "new",
+    colors: ["Сірий", "Чорний"],
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://www.dtlr.com/cdn/shop/files/NB_U1906RSB_M014.jpg?v=1744751929",
+      "assets/img/nb-1906r-1.svg",
+      "assets/img/nb-1906r-2.svg"
+    ],
+    description: "Технологічний силует 2010 року у сучасному прочитанні: N-ergy, ABZORB SBS і стабілізатор Stability Web під п'ятою.",
+    specs: { "Верх": "Сітка + TPU", "Підошва": "ABZORB / N-ergy", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "В'єтнам" },
+    stock: 7, createdAt: "2026-07-21", popular: false
+  },
+  {
+    id: "nb-fuelcell-rebel",
+    name: "New Balance FuelCell Rebel v4",
+    brand: "New Balance",
+    category: "running",
+    gender: "women",
+    price: 6990, oldPrice: null,
+    rating: 4.6, reviews: 94,
+    badge: null,
+    colors: ["Бежевий", "Білий"],
+    sizes: [36, 37, 38, 39, 40, 41],
+    images: [
+      "https://runpacers.com/cdn/shop/files/Mens-New-Balance-FuelCell-Rebel-v4-Clay-Ash-White-Black.jpg?v=1730827256",
+      "assets/img/nb-fuelcell-rebel-1.svg",
+      "assets/img/nb-fuelcell-rebel-2.svg"
+    ],
+    description: "Легкі темпові кросівки з піною FuelCell. Ідеальні для інтервалів і швидких пробіжок до 15 км.",
+    specs: { "Верх": "Інженерна сітка", "Підошва": "FuelCell", "Дроп": "6 мм", "Вага": "212 г", "Призначення": "Темпові" },
+    stock: 13, createdAt: "2026-05-19", popular: false
+  },
+  {
+    id: "asics-gel-1130",
+    name: "ASICS GEL-1130 White Clay Canyon",
+    brand: "ASICS",
+    category: "retro",
+    gender: "unisex",
+    price: 5890, oldPrice: 6590,
+    rating: 4.7, reviews: 254,
+    badge: "sale",
+    colors: ["Білий", "Бежевий"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://feature.com/cdn/shop/files/Gel-1130-White-ClayCanyon-1201A256-113-1.jpg?v=1776095982",
+      "assets/img/asics-gel-1130-1.svg",
+      "assets/img/asics-gel-1130-2.svg"
+    ],
+    description: "Y2K-силует, що повернувся у велику моду. Сітчастий верх, срібні накладки й видима вставка GEL у п'яті.",
+    specs: { "Верх": "Сітка + синтетика", "Підошва": "GEL / EVA", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 16, createdAt: "2026-04-27", popular: true
+  },
+  {
+    id: "asics-nimbus-27",
+    name: "ASICS GEL-Nimbus 27",
+    brand: "ASICS",
+    category: "running",
+    gender: "men",
+    price: 9290, oldPrice: null,
+    rating: 4.9, reviews: 143,
+    badge: "new",
+    colors: ["Синій", "Сірий"],
+    sizes: [40, 41, 42, 43, 44, 45, 46, 47],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0129/6942/files/Asics-Mens-Gel-Nimbus-27-Indigo-Fog-Denim-Blue7_1200x.jpg",
+      "assets/img/asics-nimbus-27-1.svg",
+      "assets/img/asics-nimbus-27-2.svg"
+    ],
+    description: "Найм'якіші кросівки ASICS для довгих дистанцій. Піна FF BLAST PLUS ECO і чашка PureGEL гасять удар навіть на 30-му кілометрі.",
+    specs: { "Верх": "Інженерне плетіння", "Підошва": "FF BLAST+ / PureGEL", "Дроп": "8 мм", "Вага": "300 г", "Призначення": "Довгі дистанції" },
+    stock: 10, createdAt: "2026-08-01", popular: true
+  },
+  {
+    id: "puma-palermo",
+    name: "PUMA Palermo Leather",
+    brand: "Puma",
+    category: "retro",
+    gender: "unisex",
+    price: 4390, oldPrice: 4990,
+    rating: 4.5, reviews: 208,
+    badge: "sale",
+    colors: ["Зелений", "Білий"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44],
+    images: [
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/396463/63/sv01/fnd/AUS/fmt/png/Palermo-Unisex-Sneakers",
+      "assets/img/puma-palermo-1.svg",
+      "assets/img/puma-palermo-2.svg"
+    ],
+    description: "Терасна класика 80-х: замшевий верх, товста підошва gum і фірмова Formstrip. Головний конкурент Samba за меншу ціну.",
+    specs: { "Верх": "Замша + шкіра", "Підошва": "Гума gum", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 19, createdAt: "2026-05-09", popular: true
+  },
+  {
+    id: "puma-speedcat",
+    name: "PUMA Speedcat OG",
+    brand: "Puma",
+    category: "lifestyle",
+    gender: "women",
+    price: 4790, oldPrice: null,
+    rating: 4.6, reviews: 167,
+    badge: "hit",
+    colors: ["Чорний", "Білий"],
+    sizes: [36, 37, 38, 39, 40, 41],
+    images: [
+      "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/398846/01/sv01/fnd/PNA/fmt/png/Speedcat-OG-Sneakers",
+      "assets/img/puma-speedcat-1.svg",
+      "assets/img/puma-speedcat-2.svg"
+    ],
+    description: "Гоночний силует з архіву Формули-1. Ультранизький профіль, замша й тонка підошва — найголовніший тренд сезону.",
+    specs: { "Верх": "Замша", "Підошва": "Гума", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 8, createdAt: "2026-07-04", popular: true
+  },
+  {
+    id: "puma-deviate-nitro-3",
+    name: "PUMA Deviate NITRO 3",
+    brand: "Puma",
+    category: "running",
+    gender: "unisex",
+    price: 8790, oldPrice: null,
+    rating: 4.7, reviews: 76,
+    badge: "new",
+    colors: ["Чорний", "Помаранчевий"],
+    sizes: [39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://image.goat.com/transform/v1/attachments/product_template_pictures/images/103/583/252/original/309707_02.png.png?width=750",
+      "assets/img/puma-deviate-nitro-3-1.svg",
+      "assets/img/puma-deviate-nitro-3-2.svg"
+    ],
+    description: "Карбонова пластина PWRPLATE у поєднанні з піною NITROFOAM Elite. Універсальні марафонки для тренувань і стартів.",
+    specs: { "Верх": "ULTRAWEAVE", "Підошва": "NITROFOAM + карбон", "Дроп": "8 мм", "Вага": "245 г", "Призначення": "Змагання" },
+    stock: 6, createdAt: "2026-07-28", popular: false
+  },
+  {
+    id: "converse-chuck-70",
+    name: "Converse Chuck 70 High Top",
+    brand: "Converse",
+    category: "retro",
+    gender: "unisex",
+    price: 3690, oldPrice: null,
+    rating: 4.6, reviews: 522,
+    badge: null,
+    colors: ["Чорний", "Кремовий"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw10f77af3/images/a_107/162050C_A_107X1.jpg?sw=1200",
+      "assets/img/converse-chuck-70-1.svg",
+      "assets/img/converse-chuck-70-2.svg"
+    ],
+    description: "Преміальна версія легендарних кедів: щільніше полотно, вища гумова смуга й товстіша устілка OrthoLite.",
+    specs: { "Верх": "Канвас", "Підошва": "Вулканізована гума", "Висота": "High", "Сезон": "Літо / демісезон", "Країна": "В'єтнам" },
+    stock: 24, createdAt: "2026-03-18", popular: true
+  },
+  {
+    id: "converse-run-star",
+    name: "Converse Run Star Hike Platform",
+    brand: "Converse",
+    category: "lifestyle",
+    gender: "women",
+    price: 4890, oldPrice: 5490,
+    rating: 4.5, reviews: 189,
+    badge: "sale",
+    colors: ["Чорний", "Білий"],
+    sizes: [36, 37, 38, 39, 40, 41],
+    images: [
+      "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwabd90c97/images/a_107/166800C_A_107X1.jpg?sw=1200",
+      "assets/img/converse-run-star-1.svg",
+      "assets/img/converse-run-star-2.svg"
+    ],
+    description: "Chuck Taylor на рифленій платформі. +4 см зросту й характер, який складно не помітити.",
+    specs: { "Верх": "Канвас", "Підошва": "Платформа, гума", "Висота": "High", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 12, createdAt: "2026-06-13", popular: false
+  },
+  {
+    id: "vans-old-skool",
+    name: "Vans Old Skool Classic",
+    brand: "Vans",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 3290, oldPrice: null,
+    rating: 4.7, reviews: 674,
+    badge: "hit",
+    colors: ["Чорно-білий"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://assets.vans.com/images/t_img/c_fill,g_center,f_auto,h_2500,w_2000/v1747942442/VN000D3HY28-HERO/Old-Skool-Shoe-VANS-Black-White-HERO.png",
+      "assets/img/vans-old-skool-1.svg",
+      "assets/img/vans-old-skool-2.svg"
+    ],
+    description: "Перша модель Vans із фірмовою бічною смугою Sidestripe. Замша, канвас і вафельна підошва, яка тримає на будь-якій поверхні.",
+    specs: { "Верх": "Замша + канвас", "Підошва": "Вафельна гума", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "В'єтнам" },
+    stock: 28, createdAt: "2026-02-25", popular: true
+  },
+  {
+    id: "vans-knu-skool",
+    name: "Vans Knu Skool Bold",
+    brand: "Vans",
+    category: "retro",
+    gender: "unisex",
+    price: 3890, oldPrice: 4390,
+    rating: 4.4, reviews: 132,
+    badge: "sale",
+    colors: ["Синій", "Білий"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44],
+    images: [
+      "https://assets.vans.com/images/t_img/c_fill,g_center,f_auto,h_2500,w_2000/v1740726744/VN0009QCNWD-HERO/Knu-Skool-Shoe-VANS-NavyTrue-White-HERO.png",
+      "assets/img/vans-knu-skool-1.svg",
+      "assets/img/vans-knu-skool-2.svg"
+    ],
+    description: "Пухка версія Old Skool із 90-х: товсті шнурки, роздутий язик і збільшена Sidestripe.",
+    specs: { "Верх": "Замша + канвас", "Підошва": "Вафельна гума", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 15, createdAt: "2026-05-31", popular: false
+  },
+  {
+    id: "reebok-club-c-85",
+    name: "Reebok Club C 85 Vintage",
+    brand: "Reebok",
+    category: "retro",
+    gender: "unisex",
+    price: 3490, oldPrice: null,
+    rating: 4.5, reviews: 241,
+    badge: null,
+    colors: ["Білий", "Зелений"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/092/466/993/original/1258969_01.jpg.jpeg?width=750",
+      "assets/img/reebok-club-c-85-1.svg",
+      "assets/img/reebok-club-c-85-2.svg"
+    ],
+    description: "Тенісна класика 1985 року в мінімалістичному виконанні. М'яка шкіра, вінтажний відтінок підошви й нічого зайвого.",
+    specs: { "Верх": "Натуральна шкіра", "Підошва": "Гума", "Застібка": "Шнурівка", "Сезон": "Всесезон", "Країна": "В'єтнам" },
+    stock: 21, createdAt: "2026-04-09", popular: false
+  },
+  {
+    id: "reebok-nano-x5",
+    name: "Reebok Nano X5 Training",
+    brand: "Reebok",
+    category: "training",
+    gender: "men",
+    price: 6190, oldPrice: 6990,
+    rating: 4.6, reviews: 98,
+    badge: "sale",
+    colors: ["Чорний", "Сірий"],
+    sizes: [40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/110/072/221/original/1539732_01.jpg.jpeg?width=750",
+      "assets/img/reebok-nano-x5-1.svg",
+      "assets/img/reebok-nano-x5-2.svg"
+    ],
+    description: "Кросівки №1 для кросфіту. Жорстка стабільна п'ята для присідів, гнучкий носок для стрибків і посилені боковини для канату.",
+    specs: { "Верх": "Flexweave", "Підошва": "Floatride Energy Foam", "Дроп": "7 мм", "Вага": "295 г", "Призначення": "Кросфіт" },
+    stock: 9, createdAt: "2026-06-20", popular: false
+  },
+  {
+    id: "salomon-xt-6",
+    name: "Salomon XT-6 Gore-Tex",
+    brand: "Salomon",
+    category: "trail",
+    gender: "unisex",
+    price: 10490, oldPrice: null,
+    rating: 4.8, reviews: 112,
+    badge: "new",
+    colors: ["Чорний", "Сірий"],
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45, 46],
+    images: [
+      "https://cdn.dam.salomon.com/b0fff940-2909-4454-a498-b2f401614dd6/L41086600/PNG-2000px-max-72dpi.png",
+      "assets/img/salomon-xt-6-1.svg",
+      "assets/img/salomon-xt-6-2.svg"
+    ],
+    description: "Трейловий силует, що став іконою техвіру. Мембрана Gore-Tex, швидка шнурівка Quicklace і агресивний протектор Contagrip.",
+    specs: { "Верх": "Сітка + Gore-Tex", "Підошва": "Contagrip", "Дроп": "9 мм", "Вага": "365 г", "Сезон": "Всесезон" },
+    stock: 7, createdAt: "2026-07-16", popular: true
+  },
+  {
+    id: "salomon-speedcross-6",
+    name: "Salomon Speedcross 6",
+    brand: "Salomon",
+    category: "trail",
+    gender: "men",
+    price: 7690, oldPrice: 8490,
+    rating: 4.7, reviews: 134,
+    badge: "sale",
+    colors: ["Синій", "Чорний"],
+    sizes: [40, 41, 42, 43, 44, 45, 46, 47],
+    images: [
+      "https://cdn.dam.salomon.com/28eca41b-3f94-4420-a337-b31b00b7ca32/L49145100/PNG-2000px-max-72dpi.png",
+      "assets/img/salomon-speedcross-6-1.svg",
+      "assets/img/salomon-speedcross-6-2.svg"
+    ],
+    description: "Еталон бігу по багнюці. Глибокі 5-міліметрові ґрунтозачепи, щільна посадка SensiFit і захист носка від каміння.",
+    specs: { "Верх": "Синтетика", "Підошва": "Contagrip TA", "Дроп": "10 мм", "Вага": "300 г", "Призначення": "Трейл" },
+    stock: 11, createdAt: "2026-05-24", popular: false
+  },
+  {
+    id: "nike-metcon-10",
+    name: "Nike Metcon 10",
+    brand: "Nike",
+    category: "training",
+    gender: "women",
+    price: 6590, oldPrice: null,
+    rating: 4.6, reviews: 88,
+    badge: null,
+    colors: ["Чорний", "Білий"],
+    sizes: [36, 37, 38, 39, 40, 41],
+    images: [
+      "https://static.nike.com/a/images/t_default/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5709c27f-742f-4236-93c5-fd398cde51f9/M+NIKE+METCON+10.png",
+      "assets/img/nike-metcon-10-1.svg",
+      "assets/img/nike-metcon-10-2.svg"
+    ],
+    description: "Стабільна платформа Hyperlift для важких присідань і знімна вставка під різні типи тренувань.",
+    specs: { "Верх": "Сітка + TPU", "Підошва": "Гума / Hyperlift", "Дроп": "4 мм", "Вага": "270 г", "Призначення": "Зал" },
+    stock: 14, createdAt: "2026-06-30", popular: false
+  },
+  {
+    id: "adidas-forum-low",
+    name: "adidas Forum Low CL",
+    brand: "Adidas",
+    category: "basketball",
+    gender: "unisex",
+    price: 4690, oldPrice: 5290,
+    rating: 4.5, reviews: 203,
+    badge: "sale",
+    colors: ["Білий", "Синій"],
+    sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://assets.adidas.com/images/w_840,f_auto,q_auto/836f18ee57e441d8938aaf1201323358_9366/Forum_Low_CL_Shoes_White_ID6858_01_standard.jpg",
+      "assets/img/adidas-forum-low-1.svg",
+      "assets/img/adidas-forum-low-2.svg"
+    ],
+    description: "Баскетбольна модель 1984 року з фірмовим ремінцем на щиколотці. Шкіряний верх і чистий білий блок.",
+    specs: { "Верх": "Натуральна шкіра", "Підошва": "Гума", "Застібка": "Шнурівка + ремінець", "Сезон": "Всесезон", "Країна": "Індонезія" },
+    stock: 18, createdAt: "2026-04-15", popular: false
+  },
+  {
+    id: "nike-air-max-dn",
+    name: "Nike Air Max Dn Rebel",
+    brand: "Nike",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 7990, oldPrice: null,
+    rating: 4.6, reviews: 109,
+    badge: "new",
+    colors: ["Сірий", "Синій"],
+    sizes: [38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://cdn.shopify.com/s/files/1/0603/3031/1875/files/main-square_756ef1ee-ac5e-4327-959e-39b90ff339cf_3840x.jpg?v=1710497593",
+      "assets/img/nike-air-max-dn-1.svg",
+      "assets/img/nike-air-max-dn-2.svg"
+    ],
+    description: "Система Dynamic Air із чотирьох камер під різним тиском. Відчуття, ніби йдеш по пружині — і футуристичний вигляд у комплекті.",
+    specs: { "Верх": "Сітка + синтетика", "Підошва": "Dynamic Air", "Застібка": "Шнурівка", "Сезон": "Демісезон", "Країна": "В'єтнам" },
+    stock: 10, createdAt: "2026-08-05", popular: true
+  },
+  {
+    id: "jordan-1-low",
+    name: "Air Jordan 1 Low SE Craft",
+    brand: "Jordan",
+    category: "lifestyle",
+    gender: "unisex",
+    price: 6890, oldPrice: 7590,
+    rating: 4.7, reviews: 174,
+    badge: "sale",
+    colors: ["Бежевий", "Коричневий"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44, 45],
+    images: [
+      "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/100/306/473/original/1408469_01.jpg.jpeg?width=750",
+      "assets/img/jordan-1-low-1.svg",
+      "assets/img/jordan-1-low-2.svg"
+    ],
+    description: "Низька версія AJ1 у ремісничій обробці: комбінація замші, нубуку й текстилю в теплих землистих тонах.",
+    specs: { "Верх": "Замша + нубук", "Підошва": "Гума / Air-Sole", "Висота": "Low", "Сезон": "Демісезон", "Країна": "Китай" },
+    stock: 13, createdAt: "2026-07-09", popular: false
+  }
+];
+
+window.STEPZONE_CATEGORIES = [
+  { id: "lifestyle",  name: "Лайфстайл",   desc: "На кожен день" },
+  { id: "running",    name: "Бігові",      desc: "Асфальт і темп" },
+  { id: "retro",      name: "Ретро",       desc: "Класика 70–00-х" },
+  { id: "basketball", name: "Баскетбольні", desc: "Корт і вулиця" },
+  { id: "training",   name: "Тренувальні", desc: "Зал і кросфіт" },
+  { id: "trail",      name: "Трейл",       desc: "Ліс, гори, бруд" }
+];
