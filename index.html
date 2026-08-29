@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STEPZONE — оригінальні кросівки Nike, adidas, Jordan, New Balance</title>
+<meta name="description" content="Інтернет-магазин оригінальних кросівок STEPZONE. Nike, adidas, Jordan, New Balance, ASICS, Puma. Доставка по Україні, обмін розміру безкоштовно.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0f0f'/><text y='72' x='50' font-size='58' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'>S</text></svg>">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header id="header"></header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <span class="hero__eyebrow"><i></i> Нова колекція осінь 2026 вже на складі</span>
+      <h1>Кросівки, які<br>тримають <em>твій темп</em></h1>
+      <p class="hero__lead">Тільки оригінал від Nike, adidas, Jordan, New Balance, ASICS і Salomon. Перевіряємо кожну пару вручну, відправляємо в день замовлення.</p>
+      <div class="hero__cta">
+        <a class="btn btn--accent btn--lg" href="catalog.html">Дивитись каталог</a>
+        <a class="btn btn--ghost btn--lg" href="catalog.html?badge=sale">Знижки до −25%</a>
+      </div>
+      <div class="hero__stats">
+        <div><b id="heroCount">120</b><span>моделей у наявності</span></div>
+        <div><b>4.9★</b><span>середня оцінка</span></div>
+        <div><b>1–2 дні</b><span>доставка по Україні</span></div>
+      </div>
+    </div>
+    <a class="hero__media" id="heroLink" href="catalog.html">
+      <img id="heroImg" src="" alt="Кросівки місяця">
+      <div class="hero__tag" id="heroTag"></div>
+    </a>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>Nike</span><span>·</span><span>adidas</span><span>·</span><span>Jordan</span><span>·</span><span>New Balance</span><span>·</span>
+    <span>ASICS</span><span>·</span><span>Puma</span><span>·</span><span>Converse</span><span>·</span><span>Vans</span><span>·</span>
+    <span>Reebok</span><span>·</span><span>Salomon</span><span>·</span>
+    <span>Nike</span><span>·</span><span>adidas</span><span>·</span><span>Jordan</span><span>·</span><span>New Balance</span><span>·</span>
+    <span>ASICS</span><span>·</span><span>Puma</span><span>·</span><span>Converse</span><span>·</span><span>Vans</span><span>·</span>
+    <span>Reebok</span><span>·</span><span>Salomon</span><span>·</span>
+  </div>
+</div>
+
+<!-- ХІТИ -->
+<section class="section">
+  <div class="container">
+    <div class="shead reveal">
+      <div>
+        <h2>Хіти продажів</h2>
+        <p>Моделі, які замовляють найчастіше цього місяця</p>
+      </div>
+      <a class="shead__link" href="catalog.html">Весь каталог →</a>
+    </div>
+    <div class="grid-products" id="hitsGrid"></div>
+  </div>
+</section>
+
+<!-- КАТЕГОРІЇ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="shead reveal">
+      <div>
+        <h2>Обирай за задачею</h2>
+        <p>Для бігу, залу, міста чи гір — у кожної категорії свій характер</p>
+      </div>
+    </div>
+    <div class="cats" id="catsGrid"></div>
+  </div>
+</section>
+
+<!-- НОВИНКИ -->
+<section class="section">
+  <div class="container">
+    <div class="shead reveal">
+      <div>
+        <h2>Щойно приїхали</h2>
+        <p>Свіжі надходження — поки є всі розміри</p>
+      </div>
+      <a class="shead__link" href="catalog.html?badge=new">Всі новинки →</a>
+    </div>
+    <div class="grid-products" id="newGrid"></div>
+  </div>
+</section>
+
+<!-- ПЕРЕВАГИ -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="features">
+      <div class="feature reveal">
+        <div class="feature__ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <b>100% оригінал</b>
+        <p>Прямі поставки й перевірка кожної пари. Знайдете підробку — повернемо подвійну вартість.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature__ic"><svg viewBox="0 0 24 24"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg></div>
+        <b>Доставка 1–2 дні</b>
+        <p>Нова Пошта по всій Україні, кур'єр по Києву день у день. Від 5 000 ₴ — безкоштовно.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature__ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 1 3 6.7"/><path d="M3 21v-5h5"/></svg></div>
+        <b>Обмін розміру</b>
+        <p>Не підійшов розмір — обміняємо за свій рахунок протягом 14 днів. Без питань.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature__ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg></div>
+        <b>Зручна оплата</b>
+        <p>Картка, Apple Pay, Google Pay, накладений платіж або оплата частинами до 6 платежів.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALE -->
+<section class="section">
+  <div class="container">
+    <div class="shead reveal">
+      <div>
+        <h2>Ціна впала</h2>
+        <p>Останні розміри за спеціальною ціною</p>
+      </div>
+      <a class="shead__link" href="catalog.html?badge=sale">Всі знижки →</a>
+    </div>
+    <div class="grid-products" id="saleGrid"></div>
+  </div>
+</section>
+
+<!-- БАНЕР -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="banner reveal">
+      <div class="banner__body">
+        <span class="tag tag--sale" style="margin-bottom:16px;display:inline-block">Клуб STEPZONE</span>
+        <h2>−10% на перше<br>замовлення</h2>
+        <p>Підпишіться на розсилку й отримайте промокод <b style="color:#fff">STEP10</b>, ранній доступ до релізів і персональні добірки під ваш розмір.</p>
+        <form class="news form-inline" data-newsletter style="display:flex;gap:10px;max-width:420px;margin-top:22px;background:none;padding:0">
+          <input type="email" placeholder="Ваш email" required aria-label="Email" style="flex:1;height:50px;border-radius:999px;border:none;padding:0 20px">
+          <button class="btn btn--accent" type="submit">Отримати</button>
+        </form>
+      </div>
+      <div class="banner__media">
+        <img src="assets/img/banner-club.svg" alt="Клуб STEPZONE">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ВІДГУКИ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="shead reveal">
+      <div>
+        <h2>Що кажуть покупці</h2>
+        <p>Понад 4 800 оцінок, середня — 4.9 з 5</p>
+      </div>
+    </div>
+    <div class="reviews">
+      <div class="review reveal">
+        <div class="review__stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+        </div>
+        <p>Замовляла Dunk Low, приїхали наступного дня в оригінальній коробці. Розмір трохи не підійшов — обміняли безкоштовно за три дні.</p>
+        <div class="review__who"><div class="avatar">О</div><div><b>Олеся Р.</b><span>Київ · Nike Dunk Low</span></div></div>
+      </div>
+      <div class="review reveal">
+        <div class="review__stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+        </div>
+        <p>Брав Pegasus для марафону. Консультант підказав взяти на пів розміру більше — і це врятувало мені ноги на 35-му кілометрі.</p>
+        <div class="review__who"><div class="avatar">А</div><div><b>Андрій К.</b><span>Львів · Nike Pegasus 41</span></div></div>
+      </div>
+      <div class="review reveal">
+        <div class="review__stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.6 7 .9-5.2 4.8 1.4 7L12 17.9 5.8 21.3l1.4-7L2 9.5l7-.9z"/></svg>
+        </div>
+        <p>Ціни нижчі, ніж в офіційних магазинах, а сервіс кращий. Samba прийшли за день, все чесно — оригінал.</p>
+        <div class="review__who"><div class="avatar">М</div><div><b>Марія Т.</b><span>Одеса · adidas Samba OG</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПІДПИСКА -->
+<section class="section">
+  <div class="container">
+    <div class="news reveal">
+      <h2>Не пропустіть дроп</h2>
+      <p class="muted" style="max-width:520px;margin-inline:auto">Пишемо раз на тиждень: нові релізи, розпродажі й підбірки. Без спаму — обіцяємо.</p>
+      <form data-newsletter>
+        <input type="email" placeholder="Ваш email" required aria-label="Email">
+        <button class="btn btn--accent" type="submit">Підписатись</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
