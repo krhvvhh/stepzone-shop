@@ -55,9 +55,17 @@
         SZ.observeReveal(cats);
       }
 
-      /* Лічильник у герої */
+      /* Лічильник у герої — рахуємо реальну кількість моделей */
       const cnt = SZ.qs('#heroCount');
-      if (cnt) cnt.textContent = list.length * 4;
+      if (cnt) cnt.textContent = list.length;
+
+      /* Кнопка знижок показує справжній максимум */
+      const saleBtn = SZ.qs('#heroSale');
+      if (saleBtn) {
+        const best = list.reduce((m, p) => p.oldPrice
+          ? Math.max(m, Math.round((1 - p.price / p.oldPrice) * 100)) : m, 0);
+        if (best) saleBtn.textContent = `Знижки до −${best}%`;
+      }
 
       /* Фото в герої — беремо перший хіт */
       const heroImg = SZ.qs('#heroImg');

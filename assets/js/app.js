@@ -419,10 +419,33 @@
     return f === '' ? 'index.html' : f;
   }
 
+  /* Чи підсвічувати пункт меню.
+     Пункт активний, коли збігається і сторінка, і всі його параметри.
+     «Каталог» гасне, якщо зараз відкриті «Новинки» або «Знижки». */
+  function isNavActive(href) {
+    const [path, query] = href.split('?');
+    if (path !== currentPage()) return false;
+
+    const current = new URLSearchParams(location.search);
+    const wanted = new URLSearchParams(query || '');
+
+    for (const [key, value] of wanted) {
+      if (current.get(key) !== value) return false;
+    }
+    if (!query && path === 'catalog.html' && current.get('badge')) return false;
+    return true;
+  }
+
+  /* Перемальовує підсвітку меню — каталог викликає це після зміни фільтрів */
+  SZ.refreshNav = function () {
+    SZ.qsa('.nav a, .mobile-menu a').forEach(a => {
+      a.classList.toggle('is-active', isNavActive(a.getAttribute('href')));
+    });
+  };
+
   SZ.mountHeader = function () {
     const host = SZ.qs('#header');
     if (!host) return;
-    const page = currentPage();
 
     host.className = 'header';
     host.innerHTML = `
@@ -431,7 +454,7 @@
           <span class="logo__mark"><span>S</span></span>STEP<em>ZONE</em>
         </a>
         <nav class="nav">
-          ${NAV.map(n => `<a href="${n.href}" class="${n.href.split('?')[0] === page && !n.href.includes('?') ? 'is-active' : ''}">${n.text}</a>`).join('')}
+          ${NAV.map(n => `<a href="${n.href}" class="${isNavActive(n.href) ? 'is-active' : ''}">${n.text}</a>`).join('')}
         </nav>
 
         <div class="hsearch">
@@ -460,7 +483,7 @@
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           <input type="search" placeholder="Пошук кросівок…" id="mobileSearch" autocomplete="off">
         </div>
-        ${NAV.map(n => `<a href="${n.href}">${n.text}</a>`).join('')}
+        ${NAV.map(n => `<a href="${n.href}" class="${isNavActive(n.href) ? 'is-active' : ''}">${n.text}</a>`).join('')}
         <a href="favorites.html">Обране</a>
         <a href="cart.html">Кошик</a>
       </div>`;

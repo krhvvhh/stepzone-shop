@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Каталог кросівок — STEPZONE</title>
-<meta name="description" content="Каталог оригінальних кросівок: Nike, adidas, Jordan, New Balance, ASICS, Puma, Converse, Vans, Reebok, Salomon. Фільтр за брендом, категорією, розміром і ціною.">
+<meta name="description" content="Каталог оригінальних кросівок: Nike, adidas, Jordan, New Balance, ASICS, Puma, Converse, Vans, Reebok, Salomon, On, HOKA. Фільтр за брендом, категорією, розміром і ціною.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0f0f'/><text y='72' x='50' font-size='58' font-family='Arial' font-weight='bold' fill='%23fff' text-anchor='middle'>S</text></svg>">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -19,7 +19,7 @@
 
   <div class="page-head">
     <h1>Каталог кросівок</h1>
-    <p>Оригінальні моделі десяти світових брендів. Використовуйте фільтри, щоб швидко знайти свою пару.</p>
+    <p>Оригінальні моделі дванадцяти світових брендів. Використовуйте фільтри, щоб швидко знайти свою пару.</p>
   </div>
 
   <div class="catalog">
@@ -85,7 +85,7 @@
       </div>
 
       <button class="btn btn--ghost btn--block" type="button" id="resetBtn" style="margin-top:18px">Скинути всі фільтри</button>
-      <button class="btn btn--primary btn--block" type="button" onclick="document.querySelector('.filters').classList.remove('is-open');document.body.classList.remove('no-scroll')" style="margin-top:8px">Показати результати</button>
+      <button class="btn btn--primary btn--block filters-toggle" type="button" id="filtersApply" style="margin-top:8px">Показати результати</button>
     </aside>
 
     <!-- РЕЗУЛЬТАТИ -->
@@ -95,17 +95,22 @@
           ☰ Фільтри
         </button>
         <span class="toolbar__count" id="resultCount">Завантаження…</span>
+        <span class="toolbar__count muted small" id="shownInfo"></span>
         <select id="sortSelect" style="margin-left:auto" aria-label="Сортування">
           <option value="popular">Спочатку популярні</option>
           <option value="new">Спочатку новинки</option>
           <option value="price-asc">Ціна: від дешевих</option>
           <option value="price-desc">Ціна: від дорогих</option>
           <option value="rating">За рейтингом</option>
+          <option value="discount">За розміром знижки</option>
           <option value="name">За назвою (А–Я)</option>
         </select>
       </div>
 
-      <div class="chips" id="activeChips" hidden></div>
+      <div class="chips-row">
+        <div class="chips" id="activeChips" hidden></div>
+        <button class="link-del" type="button" id="clearAllChips" hidden>✕ Скинути все</button>
+      </div>
 
       <div class="grid-products grid-products--3" id="catalogGrid"></div>
 
